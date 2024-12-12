@@ -200,7 +200,6 @@ app.get("/api/favourite-pizza", async (req, res) => {
   const result = await db.turtle.findAndCountAll({
     where: {
       firstFavoritePizzaId: pizzaId,
-      secondFavoritePizzaId: pizzaId,
     },
   });
 
