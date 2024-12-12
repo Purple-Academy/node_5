@@ -15,10 +15,10 @@ module.exports = (Sequelize, sequelize) => {
       type: Sequelize.STRING,
     },
     firstFavoritePizzaId: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
     },
     secondFavoritePizzaId: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
     },
   });
 };
