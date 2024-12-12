@@ -193,6 +193,20 @@ app.delete("/api/turtles/:id", async (req, res) => {
   }
 });
 
+// aditional url
+app.get("/api/favourite-pizza", async (req, res) => {
+  const pizzaId = "037b3280-e191-4f6c-9754-e84bdac3a95a";
+
+  const result = await db.turtle.findAndCountAll({
+    where: {
+      firstFavoritePizzaId: pizzaId,
+      secondFavoritePizzaId: pizzaId,
+    },
+  });
+
+  res.send(result);
+});
+
 db.sequelize
   .sync()
   .then(() => {
