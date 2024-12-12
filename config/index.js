@@ -1,6 +1,6 @@
 module.exports = (Sequelize) => {
   const sequelize = new Sequelize(
-    "postgres",
+    process.env.DB_NAME,
     process.env.DB_USERNAME,
     process.env.DB_PASSWORD,
     {
@@ -10,11 +10,15 @@ module.exports = (Sequelize) => {
   );
 
   //models
-  const turtle = require("../models/turtle");
+  const turtle = require("../models/turtle")(Sequelize, sequelize);
+  const pizza = require("../models/pizza")(Sequelize, sequelize);
+  const weapon = require("../models/weapon")(Sequelize, sequelize);
 
   return {
     sequelize,
 
     turtle,
+    pizza,
+    weapon,
   };
 };
